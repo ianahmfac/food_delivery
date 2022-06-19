@@ -6,15 +6,36 @@ import '../../../widgets/big_text.dart';
 import '../../../widgets/small_text.dart';
 import 'icon_and_text_widget.dart';
 
-class FoodPageBody extends StatefulWidget {
-  const FoodPageBody({Key? key}) : super(key: key);
+class FoodBanner extends StatefulWidget {
+  const FoodBanner({Key? key}) : super(key: key);
 
   @override
-  State<FoodPageBody> createState() => _FoodPageBodyState();
+  State<FoodBanner> createState() => _FoodBannerState();
 }
 
-class _FoodPageBodyState extends State<FoodPageBody> {
+class _FoodBannerState extends State<FoodBanner> {
   final PageController _pageController = PageController(viewportFraction: 0.9);
+
+  var _currentPageValue = 0.0;
+  final double _scaleFactor = 0.8;
+  final double _height = 220;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController.addListener(() {
+      setState(() {
+        _currentPageValue = _pageController.page ?? 0;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -24,11 +45,44 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         itemCount: AppImage.homeBannerFoodList.length,
         itemBuilder: (context, index) {
           final image = AppImage.homeBannerFoodList[index];
-          return Stack(
-            children: [
-              _buildImage(image),
-              _buildInformation(),
-            ],
+          var matrix = Matrix4.identity();
+          // For currently item showed
+          if (index == _currentPageValue.floor()) {
+            var currScale =
+                1 - (_currentPageValue - index) * (1 - _scaleFactor);
+            var currentTrans = _height * (1 - currScale) / 2;
+            matrix = Matrix4.diagonal3Values(1, currScale, 1)
+              ..setTranslationRaw(0, currentTrans, 0);
+          }
+          // For next item
+          else if (index == _currentPageValue.floor() + 1) {
+            var currScale = _scaleFactor +
+                (_currentPageValue - index + 1) * (1 - _scaleFactor);
+            var currentTrans = _height * (1 - currScale) / 2;
+            matrix = Matrix4.diagonal3Values(1, currScale, 1)
+              ..setTranslationRaw(0, currentTrans, 0);
+          }
+          // For previous item
+          else if (index == _currentPageValue.floor() - 1) {
+            var currScale =
+                1 - (_currentPageValue - index) * (1 - _scaleFactor);
+            var currentTrans = _height * (1 - currScale) / 2;
+            matrix = Matrix4.diagonal3Values(1, currScale, 1)
+              ..setTranslationRaw(0, currentTrans, 0);
+          }
+          // Set to default scaling
+          else {
+            matrix = Matrix4.diagonal3Values(1, _scaleFactor, 1)
+              ..setTranslationRaw(0, _height * (1 - _scaleFactor) / 2, 1);
+          }
+          return Transform(
+            transform: matrix,
+            child: Stack(
+              children: [
+                _buildImage(image),
+                _buildInformation(),
+              ],
+            ),
           );
         },
       ),

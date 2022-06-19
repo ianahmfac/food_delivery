@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../app/configs/colors.dart';
 import '../../widgets/big_text.dart';
 import '../../widgets/small_text.dart';
-import 'components/food_page_body.dart';
+import 'components/food_banner.dart';
 
 class MainFoodPage extends StatefulWidget {
   const MainFoodPage({Key? key}) : super(key: key);
@@ -19,7 +19,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
       body: Column(
         children: [
           _homeAppBar(),
-          const FoodPageBody(),
+          const FoodBanner(),
         ],
       ),
     );
