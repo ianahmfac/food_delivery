@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../app/configs/colors.dart';
+import '../../../app/configs/dimensions.dart';
 import '../../../widgets/big_text.dart';
 import '../../../widgets/small_text.dart';
 
@@ -12,7 +13,10 @@ class MainFoodHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
+      padding: EdgeInsets.symmetric(
+        horizontal: Dimensions.width20,
+        vertical: Dimensions.height15,
+      ),
       child: SafeArea(
         child: Row(
           children: [
@@ -32,13 +36,17 @@ class MainFoodHeader extends StatelessWidget {
             ),
             Center(
               child: Container(
-                height: 45,
-                width: 45,
+                height: Dimensions.height45,
+                width: Dimensions.width45,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(Dimensions.radius15),
                   color: AppColors.mainColor,
                 ),
-                child: const Icon(Icons.search, color: Colors.white),
+                child: Icon(
+                  Icons.search,
+                  color: Colors.white,
+                  size: Dimensions.iconSize24,
+                ),
               ),
             )
           ],

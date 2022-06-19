@@ -13,6 +13,7 @@ dependencies:
   dots_indicator: ^2.1.0
   flutter:
     sdk: flutter
+  get: ^4.6.5
   google_fonts: ^3.0.1
 
 dev_dependencies:

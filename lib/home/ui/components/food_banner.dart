@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/configs/colors.dart';
+import '../../../app/configs/dimensions.dart';
 import '../../../app/utils/app_image.dart';
 import '../../../widgets/big_text.dart';
 import '../../../widgets/small_text.dart';
@@ -19,7 +20,7 @@ class _FoodBannerState extends State<FoodBanner> {
 
   var _currentPageValue = 0.0;
   final double _scaleFactor = 0.8;
-  final double _height = 220;
+  final double _height = Dimensions.pageViewContainer;
 
   @override
   void initState() {
@@ -60,7 +61,7 @@ class _FoodBannerState extends State<FoodBanner> {
 
   Widget _buildBannerFood() {
     return SizedBox(
-      height: 320,
+      height: Dimensions.pageView,
       child: PageView.builder(
         controller: _pageController,
         itemCount: AppImage.homeBannerFoodList.length,
@@ -112,10 +113,10 @@ class _FoodBannerState extends State<FoodBanner> {
 
   Widget _buildImage(String image) {
     return Container(
-      height: 220,
-      margin: const EdgeInsets.symmetric(horizontal: 10),
+      height: Dimensions.pageViewContainer,
+      margin: EdgeInsets.symmetric(horizontal: Dimensions.width10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(Dimensions.radius30),
         color: AppColors.mainColor,
         image: DecorationImage(
           image: AssetImage(image),
@@ -129,20 +130,15 @@ class _FoodBannerState extends State<FoodBanner> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: 120,
-        margin: const EdgeInsets.only(
-          right: 30,
-          left: 30,
-          bottom: 30,
+        height: Dimensions.pageViewTextContainer,
+        margin: EdgeInsets.only(
+          right: Dimensions.width30,
+          left: Dimensions.width30,
+          bottom: Dimensions.height30,
         ),
-        padding: const EdgeInsets.only(
-          top: 15,
-          right: 15,
-          left: 15,
-          bottom: 15,
-        ),
+        padding: EdgeInsets.all(Dimensions.height15),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(Dimensions.radius20),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
@@ -164,7 +160,7 @@ class _FoodBannerState extends State<FoodBanner> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const BigText('Chinese Side'),
-            const SizedBox(height: 10),
+            SizedBox(height: Dimensions.height10),
             Row(
               children: [
                 Flexible(
@@ -185,7 +181,7 @@ class _FoodBannerState extends State<FoodBanner> {
                 const SmallText('1287 comments'),
               ],
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: Dimensions.height15),
             Row(
               children: const [
                 Expanded(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../app/configs/dimensions.dart';
 import '../../../widgets/small_text.dart';
 
 class IconAndTextWidget extends StatelessWidget {
@@ -20,6 +21,7 @@ class IconAndTextWidget extends StatelessWidget {
         Icon(
           icon,
           color: color,
+          size: Dimensions.iconSize24,
         ),
         const SizedBox(width: 4),
         Expanded(child: SmallText(text)),
