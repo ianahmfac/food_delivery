@@ -48,11 +48,12 @@ class _FoodBannerState extends State<FoodBanner> {
           position: _currentPageValue,
           decorator: DotsDecorator(
             activeColor: AppColors.mainColor,
-            size: const Size.square(9.0),
-            activeSize: const Size(18.0, 9.0),
+            size: Size.square(Dimensions.iconSize9),
+            activeSize: Size(Dimensions.iconSize18, Dimensions.iconSize9),
             activeShape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(5.0),
             ),
+            spacing: EdgeInsets.all(Dimensions.width6),
           ),
         ),
       ],
@@ -167,17 +168,17 @@ class _FoodBannerState extends State<FoodBanner> {
                   child: Wrap(
                     children: List.generate(
                       5,
-                      (index) => const Icon(
+                      (index) => Icon(
                         Icons.star,
                         color: AppColors.mainColor,
-                        size: 14,
+                        size: Dimensions.iconSize14,
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(width: 10),
+                SizedBox(width: Dimensions.width10),
                 const Flexible(child: SmallText('4.5')),
-                const SizedBox(width: 10),
+                SizedBox(width: Dimensions.width10),
                 const SmallText('1287 comments'),
               ],
             ),

@@ -14,6 +14,8 @@ class Dimensions {
   static double pageViewTextContainer = _proportionalSize(120);
 
   // dynamic height padding & margin
+  static double height4 = _proportionalSize(4);
+  static double height6 = _proportionalSize(6);
   static double height10 = _proportionalSize(10);
   static double height15 = _proportionalSize(15);
   static double height20 = _proportionalSize(20);
@@ -21,6 +23,8 @@ class Dimensions {
   static double height45 = _proportionalSize(45);
 
   // dynamic width padding & margin
+  static double width4 = _proportionalSize(4);
+  static double width6 = _proportionalSize(6);
   static double width10 = _proportionalSize(10);
   static double width15 = _proportionalSize(15);
   static double width20 = _proportionalSize(20);
@@ -38,4 +42,7 @@ class Dimensions {
 
   // dynamic icon size
   static double iconSize24 = _proportionalSize(24);
+  static double iconSize18 = _proportionalSize(18);
+  static double iconSize14 = _proportionalSize(14);
+  static double iconSize9 = _proportionalSize(9);
 }
