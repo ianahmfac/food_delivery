@@ -1,3 +1,4 @@
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 
 import '../../../app/configs/colors.dart';
@@ -38,6 +39,26 @@ class _FoodBannerState extends State<FoodBanner> {
 
   @override
   Widget build(BuildContext context) {
+    return Column(
+      children: [
+        _buildBannerFood(),
+        DotsIndicator(
+          dotsCount: AppImage.homeBannerFoodList.length,
+          position: _currentPageValue,
+          decorator: DotsDecorator(
+            activeColor: AppColors.mainColor,
+            size: const Size.square(9.0),
+            activeSize: const Size(18.0, 9.0),
+            activeShape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(5.0),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildBannerFood() {
     return SizedBox(
       height: 320,
       child: PageView.builder(
@@ -121,8 +142,23 @@ class _FoodBannerState extends State<FoodBanner> {
           bottom: 15,
         ),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(20),
           color: Colors.white,
+          boxShadow: const [
+            BoxShadow(
+              color: AppColors.shadowColor,
+              blurRadius: 5.0,
+              offset: Offset(0, 5),
+            ),
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(-5, 0),
+            ),
+            BoxShadow(
+              color: Colors.white,
+              offset: Offset(5, 0),
+            ),
+          ],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
