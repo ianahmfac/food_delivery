@@ -18,6 +18,7 @@ class MainFoodHeader extends StatelessWidget {
         vertical: Dimensions.height15,
       ),
       child: SafeArea(
+        bottom: false,
         child: Row(
           children: [
             Expanded(
@@ -26,9 +27,12 @@ class MainFoodHeader extends StatelessWidget {
                 children: [
                   const BigText('Indonesia', color: AppColors.mainColor),
                   Row(
-                    children: const [
-                      SmallText('South Jakarta', color: Colors.black45),
-                      Icon(Icons.arrow_drop_down_rounded),
+                    children: [
+                      const SmallText('South Jakarta', color: Colors.black45),
+                      Icon(
+                        Icons.arrow_drop_down_rounded,
+                        size: Dimensions.iconSize24,
+                      ),
                     ],
                   ),
                 ],
