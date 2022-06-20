@@ -1,8 +1,8 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app/configs/colors.dart';
-import '../../../app/configs/dimensions.dart';
 import '../../../app/utils/app_image.dart';
 import '../../../widgets/big_text.dart';
 import '../../../widgets/small_text.dart';
@@ -20,7 +20,7 @@ class _FoodBannerState extends State<FoodBanner> {
 
   var _currentPageValue = 0.0;
   final double _scaleFactor = 0.8;
-  final double _height = Dimensions.pageViewContainer;
+  final double _height = 220.h;
 
   @override
   void initState() {
@@ -48,12 +48,12 @@ class _FoodBannerState extends State<FoodBanner> {
           position: _currentPageValue,
           decorator: DotsDecorator(
             activeColor: AppColors.mainColor,
-            size: Size.square(Dimensions.iconSize9),
-            activeSize: Size(Dimensions.iconSize18, Dimensions.iconSize9),
+            size: Size.square(9.h),
+            activeSize: Size(18.h, 9.h),
             activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5.0),
+              borderRadius: BorderRadius.circular(5.r),
             ),
-            spacing: EdgeInsets.all(Dimensions.width6),
+            spacing: REdgeInsets.all(6),
           ),
         ),
       ],
@@ -62,7 +62,7 @@ class _FoodBannerState extends State<FoodBanner> {
 
   Widget _buildBannerFood() {
     return SizedBox(
-      height: Dimensions.pageView,
+      height: 320.h,
       child: PageView.builder(
         controller: _pageController,
         itemCount: AppImage.homeBannerFoodList.length,
@@ -114,10 +114,10 @@ class _FoodBannerState extends State<FoodBanner> {
 
   Widget _buildImage(String image) {
     return Container(
-      height: Dimensions.pageViewContainer,
-      margin: EdgeInsets.symmetric(horizontal: Dimensions.width10),
+      height: 220.h,
+      margin: REdgeInsets.symmetric(horizontal: 10),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(Dimensions.radius30),
+        borderRadius: BorderRadius.circular(30.r),
         color: AppColors.mainColor,
         image: DecorationImage(
           image: AssetImage(image),
@@ -131,20 +131,16 @@ class _FoodBannerState extends State<FoodBanner> {
     return Align(
       alignment: Alignment.bottomCenter,
       child: Container(
-        height: Dimensions.pageViewTextContainer,
-        margin: EdgeInsets.only(
-          right: Dimensions.width30,
-          left: Dimensions.width30,
-          bottom: Dimensions.height30,
-        ),
-        padding: EdgeInsets.all(Dimensions.height15),
+        height: 120.h,
+        margin: REdgeInsets.only(right: 30, left: 30, bottom: 30),
+        padding: REdgeInsets.all(15),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(Dimensions.radius20),
+          borderRadius: BorderRadius.circular(20.r),
           color: Colors.white,
           boxShadow: const [
             BoxShadow(
               color: AppColors.shadowColor,
-              blurRadius: 5.0,
+              blurRadius: (5.0),
               offset: Offset(0, 5),
             ),
             BoxShadow(
@@ -161,7 +157,7 @@ class _FoodBannerState extends State<FoodBanner> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             const BigText('Chinese Side'),
-            SizedBox(height: Dimensions.height10),
+            SizedBox(height: 10.h),
             Row(
               children: [
                 Flexible(
@@ -171,18 +167,18 @@ class _FoodBannerState extends State<FoodBanner> {
                       (index) => Icon(
                         Icons.star,
                         color: AppColors.mainColor,
-                        size: Dimensions.iconSize14,
+                        size: 14.h,
                       ),
                     ),
                   ),
                 ),
-                SizedBox(width: Dimensions.width10),
+                SizedBox(width: 10.w),
                 const Flexible(child: SmallText('4.5')),
-                SizedBox(width: Dimensions.width10),
+                SizedBox(width: 10.w),
                 const SmallText('1287 comments'),
               ],
             ),
-            SizedBox(height: Dimensions.height15),
+            SizedBox(height: 15.h),
             Row(
               children: const [
                 Expanded(

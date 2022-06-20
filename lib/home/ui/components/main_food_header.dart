@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../app/configs/colors.dart';
-import '../../../app/configs/dimensions.dart';
 import '../../../widgets/big_text.dart';
 import '../../../widgets/small_text.dart';
 
@@ -13,9 +13,9 @@ class MainFoodHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: Dimensions.width20,
-        vertical: Dimensions.height15,
+      padding: REdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: 15,
       ),
       child: SafeArea(
         bottom: false,
@@ -31,7 +31,7 @@ class MainFoodHeader extends StatelessWidget {
                       const SmallText('South Jakarta', color: Colors.black45),
                       Icon(
                         Icons.arrow_drop_down_rounded,
-                        size: Dimensions.iconSize24,
+                        size: 24.h,
                       ),
                     ],
                   ),
@@ -40,16 +40,16 @@ class MainFoodHeader extends StatelessWidget {
             ),
             Center(
               child: Container(
-                height: Dimensions.height45,
-                width: Dimensions.width45,
+                height: 45.h,
+                width: 45.h,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(Dimensions.radius15),
+                  borderRadius: BorderRadius.circular(15.r),
                   color: AppColors.mainColor,
                 ),
                 child: Icon(
                   Icons.search,
                   color: Colors.white,
-                  size: Dimensions.iconSize24,
+                  size: 24.h,
                 ),
               ),
             )
