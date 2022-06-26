@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/food_banner.dart';
+import 'components/home_popular_food.dart';
 import 'components/main_food_header.dart';
 
 class MainFoodPage extends StatefulWidget {
@@ -22,6 +23,7 @@ class _MainFoodPageState extends State<MainFoodPage> {
               child: Column(
                 children: const [
                   FoodBanner(),
+                  HomePopularFood(),
                 ],
               ),
             ),

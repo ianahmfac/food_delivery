@@ -133,7 +133,7 @@ class _FoodBannerState extends State<FoodBanner> {
       child: Container(
         height: 120.h,
         margin: REdgeInsets.only(right: 30, left: 30, bottom: 30),
-        padding: REdgeInsets.all(15),
+        padding: REdgeInsets.symmetric(horizontal: 15, vertical: 12),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20.r),
           color: Colors.white,
